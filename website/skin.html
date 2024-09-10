@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skin Care Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script_skin.js"></script>
+</head>
+<body>
+
+    <header>
+        <h1>Skin Care Hub</h1>
+        <nav>
+            <ul>
+                <div class="navbar">
+                    <a href="hair.html" class="navbar-selected">HAIR</a>
+                    <a href="skin.html" class="navbar-selected">SKIN</a>
+                    <a href="plant.html" class="navbar-selected">PLANTS</a>
+                    <a href="perfume.html" class="navbar-selected">PERFUMES</a>
+                    <a href="index.html" class="navbar-selected">HOME</a>
+                </div>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="hero">
+            <h3>Discover Your Perfect Skin Care Routine</h3>
+            <form id="skin-type-form">
+                <p>Choose your skin type:</p>
+                <div class="dropdown">
+                    <select id="skin-type">
+                        <option value="dry">Dry</option>
+                        <option value="oil">Oily</option>
+                        <option value="sensitive">Sensitive</option>
+                    </select>
+                </div>
+                <button id="search-button">Find Tips</button>
+            </form>
+        </section>
+    </main>
+    
+    
+    <footer>
+        <p>&copy; 2023 Skin Care Hub</p>
+    </footer>
+</body>
+</html>

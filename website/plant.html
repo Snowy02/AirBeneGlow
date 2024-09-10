@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CO2 Level Suggestions</title>
+    <link rel="stylesheet" type="text/css" href="cstyle.css">
+</head>
+<body>
+    <header>
+        <h1>Plant Suggestions</h1>
+        <div class="navbar" style="background-color: antiquewhite;margin-top: 10px;">
+            <a href="hair.html" class="navbar-selected">HAIR</a>
+            <a href="skin.html" class="navbar-selected">SKIN</a>
+            <a href="plant.html" class="navbar-selected">PLANTS</a>
+            <a href="perfume.html" class="navbar-selected">PERFUMES</a>
+            <a href="index.html" class="navbar-selected">HOME</a>
+        </div>
+    </header>
+    <main style="margin-top: 100px;">
+        <div class="hero">
+            <div class="humidity" style="font-size: 60px;">CO2 Level: {{ co2_level }} ppm</div>
+        </div>
+        <div id="plant-suggestion">
+            {% if co2_level is defined %}
+            <div class="tip">
+                <div class="tip-box">
+                    {% if co2_level < 400 %}
+                    <h3>Snake Plant (Sansevieria)</h3>
+                    <p>The Snake Plant is a great choice for low CO2 levels. It's known for its air-purifying qualities and ability to thrive in various conditions. To grow it successfully, ensure well-draining soil and moderate light, and avoid overwatering.</p>
+                    {% elif co2_level >= 400 and co2_level <= 800 %}
+                    <h3>Peace Lily (Spathiphyllum)</h3>
+                    <p>The Peace Lily thrives in moderate CO2 levels and helps improve indoor air quality. It is also known for its elegant white flowers and glossy green leaves. To grow it, provide indirect sunlight, water it regularly, and keep it in a humid environment.</p>
+                    {% else %}
+                    <h3>Spider Plant (Chlorophytum comosum)</h3>
+                    <p>The Spider Plant is known for its resilience and ability to tolerate higher CO2 levels. It's a popular choice for its easy maintenance and the way it produces plantlets, also known as spiderettes. To grow it, place it in bright, indirect light and water it regularly without overwatering.</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% else %}
+            <div class="tip">
+                <h3>Failed to fetch CO2 data from ThingSpeak. Please check your connection and try again.</h3>
+            </div>
+            {% endif %}
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 Your Website</p>
+    </footer>
+</body>
+</html>

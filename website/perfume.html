@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CO2 Level Suggestions</title>
+    <link rel="stylesheet" type="text/css" href="cstyle.css">
+</head>
+<body>
+    <header>
+        <h1>Perfume Suggestions</h1>
+        <div class="navbar" style="background-color: antiquewhite;margin-top: 10px;">
+            <a href="hair.html" class="navbar-selected">HAIR</a>
+            <a href="skin.html" class="navbar-selected">SKIN</a>
+            <a href="plant.html" class="navbar-selected">PLANTS</a>
+            <a href="perfume.html" class="navbar-selected">PERFUMES</a>
+            <a href="index.html" class="navbar-selected">HOME</a>
+        </div>
+    </header>
+    <main style="margin-top: 100px;">
+        <div class="hero">
+            <div class="humidity" style="font-size: 60px;">VOC Level: {{ voc_level }} ppb</div>
+        </div>
+        <div id="plant-suggestion">
+            {% if voc_level is defined %}
+            <div class="tip">
+                <div class="tip-box">
+                    {% if voc_level < 400 %}
+                    <h3>Citrus or fresh scents: (Low VOC Concentrations (Good Air Quality))</h3>
+                    <p>Perfumes with notes of citrus, such as lemon, orange, or bergamot, can provide a refreshing and invigorating experience in clean, well-ventilated environments.</p>
+                    {% elif voc_level >= 400 and voc_level <= 800 %}
+                    <h3>Floral or light fragrances:(Moderate VOC Concentrations (Average Air Quality))</h3>
+                    <p>Perfumes with floral notes, like rose, jasmine, or lavender, are often suitable for everyday wear in moderately clean environments.</p>
+                    {% else %}
+                    <h3>Woody or oriental scents:  (High VOC Concentrations (Poor Air Quality):)</h3>
+                    <p>Heavier fragrances with woody or oriental notes, such as sandalwood, patchouli, or amber, can help mask unpleasant odors in environments with high VOC concentrations.</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% else %}
+            <div class="tip">
+                <h3>Failed to fetch CO2 data from ThingSpeak. Please check your connection and try again.</h3>
+            </div>
+            {% endif %}
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 Your Website</p>
+    </footer>
+</body>
+</html>
